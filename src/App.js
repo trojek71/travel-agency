@@ -9,6 +9,7 @@ import Home from './components/views/Home/Home';
 import Trips from './components/views/Trips/TripsContainer';
 // TODO - import other views
 import Countries from './components/views/Countries/CountriesContainer';
+import Regions from './components/views/Regions/RegionsContainer';
 //END TO DO
 import Info from './components/views/Info/Info';
 import NotFound from './components/views/NotFound/NotFound';
@@ -43,6 +44,7 @@ class App extends React.Component {
             <Route exact path='/' component={Home} />
             <Route exact path='/trips' component={Trips} />
             <Route exact path='/countries' component={Countries} />
+            <Route exact path='/regions' component={Regions} />
             {/* TODO - add more routes for other views */}
             <Route exact path='/info' component={Info} />
             <Route path='*' component={NotFound} />

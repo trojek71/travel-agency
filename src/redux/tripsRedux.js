@@ -9,28 +9,36 @@ export const getFilteredTrips = ({trips, filters}) => {
   if(filters.searchPhrase){
     const pattern = new RegExp(filters.searchPhrase, 'i');
     output = output.filter(trip => pattern.test(trip.name));
+
   }
 
   else if (filters.duration){
-    let tripdays=[];
-    trips.forEach(function(obj){
-      tripdays.push(obj.days);
-    });
-    for (let i=0; i<tripdays.length; i++){
-      let day= tripdays[i];
-      if ((day>=filters.duration.from)&&(day<=filters.duration.to))
-        console.log('output', day);
+    output = output.filter(trip => (trip.days>=filters.duration.from&&trip.days<=filters.duration.to));
+    console.log('output- duration',output);
+  }
+
+  // TODO - filter by tags
+  if (filters.tags){
+
+    const newArray=[];
+
+    for( let trip of output){
+      for (let tag of trip.tags)
+
+        if (filters.tags.indexOf(tag)>=0 && newArray.indexOf(trip)<=0 ) {
+
+          newArray.push(trip);
+          console.log('lista wycieczek',newArray);
+        }
+        //newArray.push(trip);
     }
 
-    //output = output.filter(trip => (tripdays==filters.duration.from).test(trip.name));
-  // TODO - filter by duration
+    output=newArray;
 
-  //console.log('tripsRedux.j from ',filters.duration.from);
-  //console.log('tripsRedux.j to',filters.duration.to);
-  //console.log('czas wycieczki',tripdays);
-  //console.log('output', output);
   }
-  // TODO - filter by tags
+
+
+
 
   // TODO - sort by cost descending (most expensive goes first)
 

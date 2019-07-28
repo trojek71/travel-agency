@@ -24,7 +24,9 @@ export const removeTag = payload => ({ payload, type: REMOVE_TAG });
 // TODO - add other action creators
 
 // reducer
+
 export default function reducer(statePart = [], action = {}) {
+
   switch (action.type) {
     case CHANGE_PHRASE:
       return {
@@ -34,7 +36,7 @@ export default function reducer(statePart = [], action = {}) {
       // TODO - handle other action types
     case CHANGE_DURATION:
 
-      const duration = { ...statePart.duration }; 
+      const duration = { ...statePart.duration };
       duration[action.payload.type] = parseInt(action.payload.value);
 
       return {
@@ -48,7 +50,7 @@ export default function reducer(statePart = [], action = {}) {
       };
     case REMOVE_TAG:
       const tags = [...statePart.tags];
-      const tagToRemove = tags.indexOf(action.payload); 
+      const tagToRemove = tags.indexOf(action.payload);
       tags.splice(tagToRemove, 1);
 
       return {

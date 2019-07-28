@@ -13,7 +13,7 @@ const initialState = {
   tags: {},
   filters: {
     searchPhrase: '',
-    tags: [],
+    tags: ['pool','beach','spa','all-inclusive','child-friendly','skiing'],
     duration: {
       from: 1,
       to: 14,

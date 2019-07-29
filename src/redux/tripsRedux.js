@@ -32,13 +32,8 @@ export const getFilteredTrips = ({trips, filters}) => {
         }
 
     }
-
     output=newArray;
-
   }
-
-
-
 
   // TODO - sort by cost descending (most expensive goes first)
 

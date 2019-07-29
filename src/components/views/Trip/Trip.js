@@ -48,6 +48,14 @@ const Trip = ({error, name, image, cost, days, description, country, intro}) => 
       <Grid>
         <Row>
           <Col xs={12}>
+            <PageTitle text='Trip options' />
+            <OrderForm tripCost={cost} />
+          </Col>
+        </Row>
+      </Grid>
+      <Grid>
+        <Row>
+          <Col xs={12}>
             <PageTitle text='Trip details' />
             {HTMLParser(description)}
           </Col>

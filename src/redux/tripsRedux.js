@@ -14,7 +14,7 @@ export const getFilteredTrips = ({trips, filters}) => {
 
   else if (filters.duration){
     output = output.filter(trip => (trip.days>=filters.duration.from&&trip.days<=filters.duration.to));
-    console.log('output- duration',output);
+
   }
 
   // TODO - filter by tags
@@ -28,9 +28,9 @@ export const getFilteredTrips = ({trips, filters}) => {
         if (filters.tags.indexOf(tag)>=0 && newArray.indexOf(trip)<=0 ) {
 
           newArray.push(trip);
-          console.log('lista wycieczek',newArray);
+
         }
-        //newArray.push(trip);
+
     }
 
     output=newArray;
@@ -47,20 +47,26 @@ export const getFilteredTrips = ({trips, filters}) => {
 
 export const getTripById = ({trips}, tripId) => {
   const filtered = trips;
+  const nrArray=[];
+  for(let trip of trips){
+    nrArray.push(trip.id);
+  }
+  let nr = nrArray.indexOf(tripId);
 
-  // TODO - filter trips by tripId
+  console.log('filtering trips by tripId:',filtered,tripId);
+  return filtered.length ? filtered[nr] : {error: true};
 
-  console.log('filtering trips by tripId:', tripId, filtered);
-  return filtered.length ? filtered[0] : {error: true};
 };
 
 export const getTripsForCountry = ({trips}, countryCode) => {
   const filtered = trips;
 
+
   // TODO - filter trips by countryCode
 
   console.log('filtering trips by countryCode:', countryCode, filtered);
   return filtered.length ? filtered : [{error: true}];
+
 };
 
 /* ACTIONS */

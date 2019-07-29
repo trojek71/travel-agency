@@ -15,6 +15,7 @@ import {AnimatedSwitch,spring} from 'react-router-transition';
 //END TO DO
 import Info from './components/views/Info/Info';
 import NotFound from './components/views/NotFound/NotFound';
+import Trip from './components/views/Trip/TripContainer';
 
 import parseTrips from './utils/parseTrips';
 import {setMultipleStates} from './redux/globalRedux';
@@ -56,6 +57,7 @@ class App extends React.Component {
             <Route exact path='/regions' component={Regions} />
             {/* TODO - add more routes for other views */}
             <Route exact path='/info' component={Info} />
+            <Route exact path='/trip/:id' component={Trip} />
             <Route path='*' component={NotFound} />
           </AnimatedSwitch>
         </MainLayout>
